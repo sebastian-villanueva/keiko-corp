@@ -7,10 +7,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="css/owl.transitions.css"/>
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
 	<link rel="stylesheet" type="text/css" href="css/main.css"/>
 
 
@@ -295,5 +291,27 @@
 	</footer>
 	<!--  End Footer Section  -->
 
+	<script type='text/javascript'>
+		const loadStyles = (src) => {
+			if(document.createStylesheet){
+				src.map(elm => {
+					console.log(elm)
+					document.createStylesheet(elm)
+				})
+			} else {
+				src.map(elm => {
+					console.log(elm)
+					const stylesheet = document.createElement('link');
+					stylesheet.href = elm;
+					stylesheet.type = 'text/css';
+					stylesheet.rel = 'stylesheet';
+					document.getElementsByTagName('head')[0].appendChild(stylesheet)
+				})
+			}
+		}
+		window.onload = function() {
+			loadStyles(["css/bootstrap.css", "css/owl.transitions.css", 'css/owl.carousel.css', 'css/animate.css'])
+		}
+	</script>
 </body>
 </html>
